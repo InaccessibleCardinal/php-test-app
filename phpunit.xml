@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<phpunit xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://schema.phpunit.de/9.3/phpunit.xsd" bootstrap="vendor/autoload.php" forceCoversAnnotation="false" beStrictAboutCoversAnnotation="true" beStrictAboutOutputDuringTests="false" beStrictAboutTodoAnnotatedTests="true" verbose="true" colors="true">
+  <coverage processUncoveredFiles="true">
+    <include>
+      <directory suffix=".php">src</directory>
+    </include>
+  </coverage>
+  <testsuites>
+    <testsuite name="http">
+      <directory suffix="Test.php">app/http/tests</directory>
+    </testsuite>
+    <testsuite name="router">
+      <directory suffix="Test.php">app/router/tests</directory>
+    </testsuite>
+    <testsuite name="di">
+      <directory suffix="Test.php">app/di/tests</directory>
+    </testsuite>
+    <testsuite name="tree">
+      <directory suffix="Test.php">app/tree/tests</directory>
+    </testsuite>
+    <testsuite name="service">
+      <directory suffix="Test.php">app/service/tests</directory>
+    </testsuite>
+    <testsuite name="db">
+      <directory suffix="Test.php">app/db/tests</directory>
+    </testsuite>
+  </testsuites>
+</phpunit>

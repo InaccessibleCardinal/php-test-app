@@ -1,0 +1,57 @@
+
+<h1>Signup</h1>
+<a href="/">Home</a>
+<br />
+<a href="login">Login</a>
+<div>
+  <form action="signup" method="post">
+    <h2></h2>
+    <div>
+      <label for="firstName">
+        First Name:
+        <input type="text" id="firstName" name="firstName" />
+      </label>
+    </div>
+    <div>
+      <label for="lastName">
+        Last Name:
+        <input type="text" id="lastName"name="lastName" />
+      </label>
+    </div>
+    <div>
+      <label for="email">
+        Email:
+        <input type="text" id="email" name="email" />
+      </label>
+    </div>
+    <div>
+      <label for="password">
+        Password:
+        <input type="password" id="password" name="password" />
+      </label>
+    </div>
+    <button id="submitButton" type="submit">Submit</button>
+  </form>
+  <div id="errors"></div>
+</div>
+<script src="./js/errors.js"></script>
+<script>
+  "use strict";
+
+  const fields = {
+    firstName: document.getElementById('firstName'),
+    lastName: document.getElementById('lastName'),
+    email: document.getElementById('email'),
+    password: document.getElementById('password'),
+    submitButton: document.getElementById('submitButton')
+  };
+
+  fields.submitButton.addEventListener('click', (ev) => {
+    const {firstName, lastName, email, password} = fields;
+    if (!firstName.value || !lastName.value || !email.value || !password.value) {
+      ev.preventDefault();
+      makeError('All fields are required.');
+    }
+  });
+  
+</script>

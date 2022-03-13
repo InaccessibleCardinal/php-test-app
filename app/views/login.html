@@ -1,0 +1,53 @@
+
+<h1>Login</h1>
+<a href="/">Home</a>
+<br />
+<a href="/signup">Signup</a>
+<form style="padding-top: 10px;">
+  <div style="padding-top: 5px;">
+    <label for="username">Username
+      <input style="min-width: 300px; padding: 5px;" id="username" name="username" type="text" />
+    </label>
+  </div>
+  <div style="padding-top: 5px;">
+    <label for="password">Password
+      <input style="min-width: 300px; padding: 5px;" id="password" name="password" type="text" />
+    </label>
+  </div>
+  <button id="submit-button">Sumbit</button>
+</form>
+<div id="errors"></div>
+<script src="./js/errors.js"></script>
+<script src="./js/makeHttpRequest.js"></script>
+<script>
+  "use strict";
+  const ids = {
+    usernameField: document.getElementById('username'),
+    passwordField: document.getElementById('password'),
+    submitButton: document.getElementById('submit-button')
+  };
+
+  ids.submitButton.addEventListener('click', async (ev) => {
+    ev.preventDefault();
+    const {usernameField, passwordField} = ids;
+    if (usernameField.value && passwordField.value) {
+      try {
+        const data = await makeHttpRequest({
+          url: 'http://localhost:3000/login',
+          method: 'POST',
+          data: {userName: usernameField.value, password: passwordField.value}
+        });
+        console.log({data});
+        usernameField.value = '';
+        passwordField.value = '';
+      } catch (err) {
+        console.error(err);
+      }
+    } else {
+      alert('need values');
+    } 
+  });
+
+  
+  
+</script>
