@@ -30,7 +30,7 @@ class Router {
       $func = $this->handlers[$method . $path];
       call_user_func($func, $req, $res);
     } else {
-      echo file_get_contents(__DIR__.'/../views/notfound.php');
+      echo file_get_contents(__DIR__.'/../views/notfound.html');
     }
   }
 }

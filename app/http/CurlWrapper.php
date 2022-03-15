@@ -3,7 +3,9 @@ declare(strict_types = 1);
 
 namespace App\http;
 
-class CurlWrapper {
+use App\http\HttpClientInterface;
+
+class CurlWrapper implements HttpClientInterface {
   private \CurlHandle $handle;
   private array $responseHeaders = [];
 

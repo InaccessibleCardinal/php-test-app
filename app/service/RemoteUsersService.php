@@ -3,14 +3,14 @@ declare(strict_types = 1);
 
 namespace App\service;
 
-use App\http\CurlWrapper;
+use App\http\HttpClientInterface;
 
 class RemoteUsersService {
   const PATH = '/users';
-  private CurlWrapper $client;
+  private HttpClientInterface $client;
   private string $url;
 
-  public function __construct(CurlWrapper $client) {
+  public function __construct(HttpClientInterface $client) {
     $this->client = $client;
     $this->url = getenv('REMOTE_URI') . self::PATH;
   }

@@ -25,7 +25,7 @@ class Container {
   private function getClass($arg) {
     $className = @$arg->getClass()->name;
     if ($this->checkClassNeedsAutowiring($className)) {
-      return $this->createAutowiredInstance($className);
+      return $this->createAutowiredInstance($this->config[$className]['class']);
     }
     return new $className();
   }

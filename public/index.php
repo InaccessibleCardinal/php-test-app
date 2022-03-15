@@ -21,7 +21,8 @@ $res = new ServerResponse();
 $router->get('/', 'App\controller\UiController::handleHome');
 $router->get('/signup', 'App\controller\UiController::handleSignup');
 $router->get('/signup-success', 'App\controller\UiController::handleSignupSuccess');
-
+$router->get('/react', 'App\controller\InjectReactController::inject');
+$router->get('/jquery', 'App\controller\InjectJQueryController::inject');
 
 $signupPostController = $container->getInstance(App\controller\SignupPostController::class);
 $router->post('/signup', [$signupPostController, 'handleSignup']);
@@ -35,9 +36,9 @@ $remoteUsersController = $container->getInstance(App\controller\RemoteUsersContr
 $router->get('/remote-users', [$remoteUsersController, 'handleGet']);
 $router->post('/remote-users', [$remoteUsersController, 'handlePost']);
 
-
-$router->get('/test', function() use ($req) {
-  echo json_encode($req, JSON_PRETTY_PRINT);
+$router->post('/test', function() use ($req) {
+  //  
 });
+
 
 $router->execute($req, $res);

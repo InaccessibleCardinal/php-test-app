@@ -14,7 +14,7 @@
       <input style="min-width: 300px; padding: 5px;" id="password" name="password" type="text" />
     </label>
   </div>
-  <button id="submit-button">Sumbit</button>
+  <button id="submit-button">Submit</button>
 </form>
 <div id="errors"></div>
 <script src="./js/errors.js"></script>
@@ -35,7 +35,7 @@
         const data = await makeHttpRequest({
           url: 'http://localhost:3000/login',
           method: 'POST',
-          data: {userName: usernameField.value, password: passwordField.value}
+          data: {email: usernameField.value, password: passwordField.value}
         });
         console.log({data});
         usernameField.value = '';

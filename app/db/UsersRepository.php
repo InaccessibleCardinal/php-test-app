@@ -3,7 +3,9 @@ declare(strict_types = 1);
 
 namespace App\db;
 
-class UsersRepository {
+use App\db\RepositoryInterface;
+
+class UsersRepository implements RepositoryInterface {
   const TABLE = 'users';
 
   private \PDO $pdo;

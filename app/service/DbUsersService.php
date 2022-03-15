@@ -3,12 +3,12 @@ declare(strict_types = 1);
 
 namespace App\service;
 
-use App\db\UsersRepository;
+use App\db\RepositoryInterface;
 
 class DbUsersService {
-  private UsersRepository $repository;
+  private RepositoryInterface $repository;
 
-  public function __construct(UsersRepository $repository) {
+  public function __construct(RepositoryInterface $repository) {
     $this->repository = $repository;
   }
 
